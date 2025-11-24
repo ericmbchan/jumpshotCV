@@ -1,0 +1,223 @@
+═══════════════════════════════════════════════════════════════════════════════
+                    BASKETBALL SHOT ANALYSIS - FILE INDEX
+═══════════════════════════════════════════════════════════════════════════════
+
+��� PROJECT FILES (12 total):
+
+CORE APPLICATION (682 lines of Python code):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  video_processor.py (142 lines)
+    • VideoProcessor class
+    • Video validation
+    • Frame extraction  
+    • Video metadata
+    └─ Use: from video_processor import VideoProcessor
+
+  model_inference.py (147 lines)
+    • ShotClassifier class
+    • Model loading (ResNet50/18)
+    • Batch inference
+    • GPU support
+    └─ Use: from model_inference import ShotClassifier
+
+  cli.py (132 lines)
+    • Command-line interface
+    • Argument parsing
+    • Pipeline orchestration
+    • Results saving
+    └─ Run: python cli.py --video video.mp4
+
+  app.py (70 lines)
+    • Flask web application
+    • REST API endpoints
+    • Health checks
+    • Ready for expansion
+    └─ Run: python app.py
+
+  utils.py (92 lines)
+    • Logging configuration
+    • JSON handling
+    • Report formatting
+    • Directory management
+    └─ Use: from utils import setup_logging
+
+  config.py (37 lines)
+    • Configuration constants
+    • Model settings
+    • Path management
+    • Feature flags
+    └─ Edit: config.py
+
+  generate_test_video.py (62 lines)
+    • Test video generator
+    • Creates MP4 file
+    • No dependencies beyond OpenCV
+    └─ Run: python generate_test_video.py
+
+
+CONFIGURATION & DEPENDENCIES:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  requirements.txt
+    • PyTorch 2.1.2
+    • OpenCV 4.8.1
+    • Flask 3.0
+    • NumPy, Pillow, Werkzeug
+    └─ Install: pip install -r requirements.txt
+
+  .gitignore
+    • Python cache/egg files
+    • Virtual environments
+    • IDE files
+    • Video files
+    └─ Use: git init && git add .
+
+
+DOCUMENTATION:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ��� START_HERE.txt (this is your quick start!)
+    • Project overview
+    • 3-step quick start
+    • Features checklist
+    • Example outputs
+    └─ Read this FIRST
+
+  ��� QUICK_REFERENCE.txt (handy command reference)
+    • 3-step setup
+    • CLI options
+    • Command examples
+    • Troubleshooting
+    └─ Keep nearby!
+
+  ��� SETUP.md (detailed setup guide)
+    • Step-by-step installation
+    • Testing without video
+    • Multiple usage modes
+    • Common issues
+    └─ Follow for installation
+
+  ��� README.md (full documentation)
+    • Feature overview
+    • Project structure
+    • Usage examples
+    • Performance info
+    • Configuration options
+    └─ Reference guide
+
+  ��� INDEX.txt (this file)
+    • File descriptions
+    • File purposes
+    • Usage patterns
+    • Quick navigation
+    └─ You are here!
+
+
+��� QUICK NAVIGATION:
+
+Getting Started?
+  → Read: START_HERE.txt
+  → Then: SETUP.md
+  → Then: python generate_test_video.py
+
+Want Quick Reference?
+  → See: QUICK_REFERENCE.txt
+
+Need Setup Help?
+  → Follow: SETUP.md
+
+Learning the Code?
+  → Check: README.md
+  → Review: Code comments
+  → Run: python cli.py --help
+
+Having Issues?
+  → Check: QUICK_REFERENCE.txt (Troubleshooting)
+  → Or: SETUP.md (Common Issues)
+
+
+��� FILE STATISTICS:
+
+Python Code:              682 lines
+  • video_processor.py    142 lines
+  • model_inference.py    147 lines
+  • cli.py                132 lines
+  • app.py                70 lines
+  • utils.py              92 lines
+  • config.py             37 lines
+  • generate_test_video.py 62 lines
+
+Documentation:          ~4000 words
+  • START_HERE.txt
+  • QUICK_REFERENCE.txt
+  • SETUP.md
+  • README.md
+  • INDEX.txt (this file)
+
+
+��� USE CASES:
+
+Want to test quickly?
+  1. python generate_test_video.py
+  2. python cli.py --video test_video.mp4
+
+Want to analyze your own video?
+  1. python cli.py --video your_video.mp4
+  2. Check results/ directory
+
+Want web interface?
+  1. python app.py
+  2. Visit http://localhost:5000
+
+Want to integrate into your code?
+  1. from video_processor import VideoProcessor
+  2. from model_inference import ShotClassifier
+  3. (See code comments for examples)
+
+Want faster analysis?
+  1. python cli.py --video video.mp4 --model resnet18
+  2. python cli.py --video video.mp4 --frame-rate 3
+
+Want to debug?
+  1. python cli.py --video video.mp4 --log-level DEBUG
+  2. Check results/log file
+
+
+✅ CHECKLIST - BEFORE YOU START:
+
+□ Install Python 3.9+
+□ Create virtual environment
+□ Install dependencies (pip install -r requirements.txt)
+□ Read START_HERE.txt
+□ Run: python generate_test_video.py
+□ Run: python cli.py --video test_video.mp4
+□ Check results/ for output
+□ Try different options
+
+
+��� COMMON COMMANDS:
+
+Setup:
+  python -m venv venv
+  source venv/bin/activate
+  pip install -r requirements.txt
+
+Test:
+  python generate_test_video.py
+
+Analyze:
+  python cli.py --video test_video.mp4
+
+Web:
+  python app.py
+
+Debug:
+  python cli.py --video video.mp4 --log-level DEBUG
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+Next Step: Open START_HERE.txt
+
+═══════════════════════════════════════════════════════════════════════════════

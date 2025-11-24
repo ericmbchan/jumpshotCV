@@ -1,0 +1,176 @@
+╔═══════════════════════════════════════════════════════════════════════════╗
+║           BASKETBALL SHOT ANALYSIS - QUICK REFERENCE CARD                 ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+��� GET STARTED IN 3 STEPS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. INSTALL
+   python -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+
+2. CREATE TEST VIDEO
+   python generate_test_video.py
+
+3. ANALYZE
+   python cli.py --video test_video.mp4
+
+��� THREE WAYS TO RUN:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CLI (Command Line):
+   python cli.py --video video.mp4 [options]
+
+WEB:
+   python app.py
+   → Visit http://localhost:5000
+
+PYTHON:
+   from video_processor import VideoProcessor
+   from model_inference import ShotClassifier
+
+��� CLI OPTIONS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+--video FILE          Video file path (required)
+--model {resnet50,resnet18}  Model (default: resnet50)
+--frame-rate N        Skip N frames (default: 2)
+--batch-size N        Inference batch size (default: 32)
+--output FILE         Save to file
+--log-level {DEBUG,INFO,WARNING,ERROR}
+
+��� CLI EXAMPLES:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Basic:
+   python cli.py --video shot.mp4
+
+Fast (ResNet18):
+   python cli.py --video shot.mp4 --model resnet18
+
+Faster (skip 3 frames):
+   python cli.py --video shot.mp4 --frame-rate 3
+
+Save output:
+   python cli.py --video shot.mp4 --output results.json
+
+Debug:
+   python cli.py --video shot.mp4 --log-level DEBUG
+
+��� FILES EXPLAINED:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+video_processor.py     Loads video, extracts frames
+model_inference.py     Runs deep learning model
+cli.py                 Command-line interface
+app.py                 Flask web server
+utils.py               Logging, JSON, helpers
+config.py              Configuration
+generate_test_video.py Creates test video
+requirements.txt       Python packages
+START_HERE.txt         Getting started
+SETUP.md               Installation guide
+README.md              Full docs
+
+⚙️ CONFIGURATION:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Edit config.py for:
+   • Model names
+   • Batch sizes
+   • Logging levels
+   • Output paths
+   • GPU settings
+
+��� OUTPUTS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Location: results/YYYYMMDD_HHMMSS/predictions.json
+
+Contains:
+   • Timestamp (sec)
+   • Prediction (make/miss)
+   • Confidence (0-1)
+   • Video info
+   • Summary stats
+
+⚡ PERFORMANCE:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ResNet50 on CPU:  2-3 fps
+ResNet18 on CPU:  4-5 fps
+ResNet50 on GPU:  50-100 fps
+
+Speed up:
+   • Use --model resnet18
+   • Use --frame-rate 3 (or higher)
+   • Use --batch-size 8 (lower)
+
+��� COMMON ISSUES:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ImportError:
+   pip install -r requirements.txt --force-reinstall
+
+Video won't open:
+   ffmpeg -i video.mov -c:v libx264 video.mp4
+
+Out of memory:
+   python cli.py --video shot.mp4 --batch-size 8
+
+Slow:
+   python cli.py --video shot.mp4 --model resnet18
+
+��� TIPS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✓ Use ResNet18 on CPU systems (much faster)
+✓ Increase frame-rate to speed up analysis
+✓ Start with frame-rate=2 for balance
+✓ Check results/ directory for output files
+✓ Use --log-level DEBUG for troubleshooting
+✓ Run generate_test_video.py to test without video
+
+��� DOCUMENTATION:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+START_HERE.txt  → Full overview (read this first!)
+SETUP.md        → Installation & setup
+README.md       → Features & usage
+Code            → Comments & docstrings
+
+��� PYTHON EXAMPLES:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Video processing
+from video_processor import VideoProcessor
+processor = VideoProcessor(frame_sampling_rate=2)
+processor.open_video("video.mp4")
+frames = processor.extract_frames()
+
+# Model inference
+from model_inference import ShotClassifier
+classifier = ShotClassifier(model_name="resnet18")
+predictions = classifier.predict_frames_batch([f[0] for f in frames])
+
+# Utilities
+from utils import setup_logging, save_predictions_to_json
+setup_logging(log_level="INFO")
+save_predictions_to_json(predictions, "output.json")
+
+✨ PROJECT STATS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Code:          682 lines of Python
+Modules:       7 core files
+Documentation: 3 guide files
+Total Files:   11
+Models:        ResNet50, ResNet18
+Languages:     Python, JSON, Markdown
+
+═════════════════════════════════════════════════════════════════════════════
+
+��� READY? Run: python generate_test_video.py
+
+═════════════════════════════════════════════════════════════════════════════
