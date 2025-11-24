@@ -1,32 +1,6 @@
 # Basketball Jump Shot Classification MVP
 
-A Python computer vision application that analyzes basketball videos to predict jump shot outcomes using deep learning.
-
-## Quick Start
-
-### 1. Install
-```bash
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-```
-
-### 2. Generate Test Video
-```bash
-python generate_test_video.py
-```
-
-### 3. Analyze
-```bash
-python cli.py --video test_video.mp4
-```
-
-## Usage
-
-### Command Line
-```bash
-python cli.py --video basketball.mp4 --model resnet18 --frame-rate 2
-```
+A Python computer vision application that takes a basketball video file as input and leveraging CV video processing tool openCV2 and DL model resnet50 to predict jump shot outcomes using CNN architecture.
 
 ### Python API
 ```python
@@ -80,27 +54,7 @@ python app.py
 - `utils.py` - Utilities
 - `config.py` - Configuration
 
-## Troubleshooting
 
-Video won't open?
-```bash
-ffmpeg -i video.mov -c:v libx264 video.mp4
-```
-
-Out of memory?
-```bash
-python cli.py --video shot.mp4 --batch-size 8
-```
-
-Module errors?
-```bash
-pip install -r requirements.txt --force-reinstall
-```
-
-## Next Steps
-
-1. Fine-tune model on real basketball data
-2. Add player/ball detection
 3. Implement batch video processing
 4. Deploy to cloud
 
